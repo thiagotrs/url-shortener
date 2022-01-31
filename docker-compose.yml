@@ -1,0 +1,35 @@
+version: '3'
+services:
+  node:
+    container_name: node
+    image: node:latest
+    volumes:
+      - .:/home/app
+    working_dir: "/home/app"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - mongo
+    ports:
+      - '5000:5000'
+    user: "node"
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: url-shortener
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - 8081:8081
