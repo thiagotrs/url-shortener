@@ -8,10 +8,8 @@ This Project was developed for Bootcamp in Digital Innovation One.
 
 ## Technologies
 
-- ReactJS
-- Typescipt
-- Normalize
-- Styled Components
+- NodeJs
+- MongoDB
 
 ## Run Project
 
